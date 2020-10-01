@@ -38,13 +38,13 @@ public class Teacher {
 
         }
     }
-    public String getInfo(Teacher teacher){
+    public String getInfo(){
         String s = "";
-        if(teacher.getProfession() != "unemployed") {
-            s = "Teacher: " + teacher.getName() + " is " + teacher.getProfession() + " teacher";
+        if(profession != "unemployed") {
+            s = "Teacher: " + name + " is " + profession + " teacher";
             return s;
         }
-        s = "Teacher " + teacher.getName() + " is no longer working in our school";
+        s = "Teacher " + name + " is no longer working in our school";
         return s;
      }
 }

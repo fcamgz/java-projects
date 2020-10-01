@@ -4,9 +4,11 @@ import java.lang.reflect.Array;
 
 public class Management {
     private String name;
-    private int numOfStudents, numOfTeachers;
+    final int NUMBEROFCLASSES = 5;
+    public int numOfStudents, numOfTeachers;
     private Student[] studentList;
     private Teacher[] teacherList;
+
 
     public Management(String name){
         this.name = name;
@@ -25,12 +27,14 @@ public class Management {
         return false;
     }
 
-    public void addStudent(int studentGrade, String name, int age, int studentID){
-            Student student = new Student(studentGrade,name, age, studentID);
+    public void addStudent(Student student){
+            student = new Student(student.getStudentGrade(),student.getName(), student.getAge(), student.getStudentID());
             student.setPaid(true);
             student.setBalance(1000);
             student.setCredit(0);
             student.setCurrentlyEnrolled(true);
+            student.setNumberOfClasses(NUMBEROFCLASSES);
+            student.studentClasses = new String[student.getNumberOfClasses()];
             studentList[numOfStudents] = student;
             numOfStudents++;
         System.out.println("Student: " + student.getName() + " is successfully added to system");
@@ -44,6 +48,13 @@ public class Management {
         student.setPaid(false);
         numOfStudents--;
         System.out.println("Student " + student + " is removed");
+    }
+
+    public void addStudentClasses(Student student, String... className){
+        for(int x = 0; x < student.getNumberOfClasses(); x++){
+            //student.studentClasses[x] = className;
+        }
+
     }
 
     public void addTeacher(String name, String profession){

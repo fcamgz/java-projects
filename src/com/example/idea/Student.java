@@ -3,8 +3,9 @@ package com.example.idea;
 import java.util.HashMap;
 
 public class Student {
-    private int studentID, studentGrade, credit, age;
-    private String name, className;
+    private int studentID, studentGrade, credit, age,numberOfClasses;
+    private String name;
+    public String[] studentClasses;
     private double balance;
     private boolean advanceToNextYear, currentlyEnrolled, paidTuition;
     private double gpa;
@@ -16,6 +17,7 @@ public class Student {
         this.age = age;
         this.studentID = studentID;
 
+
     }
 
     public int getStudentID() {
@@ -24,6 +26,14 @@ public class Student {
 
     public void setStudentID(int studentID) {
         this.studentID = studentID;
+    }
+
+    public int getNumberOfClasses(){
+        return numberOfClasses;
+    }
+
+    public void setNumberOfClasses(int numberOfClasses){
+        this.numberOfClasses = numberOfClasses;
     }
 
     public int getStudentGrade() {
@@ -48,14 +58,6 @@ public class Student {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getClassName() {
-        return className;
-    }
-
-    public void setClassName(String className) {
-        this.className = className;
     }
 
     public double getBalance() {
@@ -98,13 +100,13 @@ public class Student {
     public void setAdvanceToNextYear(boolean advanceToNextYear) {
         this.advanceToNextYear = advanceToNextYear;
     }
-    public String getInfo(Student student){
+    public String getInfo(){
         String s = "";
-        if(student.getCurrentlyEnrolled() != false) {
-            s = "Student name: " + name + " student number " + studentID + " is in grade " + student.getStudentGrade();
+        if(currentlyEnrolled != false) {
+            s = "Student name: " + name + " student number " + studentID + " is in grade " + studentGrade;
             return s;
         }
-        s = "Student : " + student.getName() + " is no longer in our system";
+        s = "Student : " + name + " is no longer in our system";
         return s;
     }
 
