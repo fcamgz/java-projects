@@ -9,15 +9,23 @@ public class Student {
     private double balance;
     private boolean advanceToNextYear, currentlyEnrolled, paidTuition;
     private double gpa;
-    HashMap<String,Integer> courses = new HashMap<>();
+    public HashMap<String,Integer> studentCoursesList;
 
-    public Student(int studentGrade, String name, int age, int studentID) {
+    public Student(int studentGrade, String name, int age, int studentID, boolean paidTuition, double balance, int credit, boolean currentlyEnrolled, double gpa) {
         this.studentGrade = studentGrade;
         this.name = name;
         this.age = age;
         this.studentID = studentID;
+        this.paidTuition = paidTuition;
+        this.balance = balance;
+        this.credit = credit;
+        this.currentlyEnrolled = currentlyEnrolled;
+        this.gpa = gpa;
+        studentCoursesList = new HashMap<String, Integer>();
+    }
 
-
+    public void setAge(int age){
+        this.age = age;
     }
 
     public int getStudentID() {
@@ -103,7 +111,8 @@ public class Student {
     public String getInfo(){
         String s = "";
         if(currentlyEnrolled != false) {
-            s = "Student name: " + name + " student number " + studentID + " is in grade " + studentGrade;
+            s = "Student name: " + name + " student number " + studentID + " is in grade " + studentGrade + " age " + age +
+                    " currently enrolled. GPA: " + gpa;
             return s;
         }
         s = "Student : " + name + " is no longer in our system";

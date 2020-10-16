@@ -4,10 +4,19 @@ import java.util.LinkedHashMap;
 
 public class Teacher {
     private String name, profession;
+    private int id;
 
-    public Teacher(String name, String profession){
+    public Teacher(String name, String profession, int id){
         this.name = name;
         this.profession = profession;
+        this.id = id;
+    }
+
+    public int getTeacherId(){
+        return id;
+    }
+    public void setTeacherId(int id){
+        this.id = id;
     }
 
     public String getName(){
@@ -22,25 +31,11 @@ public class Teacher {
         this.profession = profession;
     }
 
-    public void gradeStudent(Student student, Teacher teacher, int midterm, int finalterm, int credit){
-            int pointsResult = (midterm + finalterm) / 2;
-            student.courses.put(teacher.getProfession(),pointsResult);
-    }
 
-    public void passOrNoPass(Student student, Teacher teacher){
-        int grade = student.courses.get(teacher.getProfession());
-        if(grade >= 50){
-            student.setAdvanceToNextYear(true);
-            System.out.println("You can advance to next year on " + teacher.getProfession());
-        }else {
-            student.setAdvanceToNextYear(false);
-            System.out.println("You can not advance to next year on " + teacher.getProfession());
 
-        }
-    }
     public String getInfo(){
         String s = "";
-        if(profession != "unemployed") {
+        if(profession != "former") {
             s = "Teacher: " + name + " is " + profession + " teacher";
             return s;
         }
